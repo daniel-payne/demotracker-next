@@ -2,17 +2,13 @@ import css from 'styled-jsx/css'
 
 import CssBaseline from '@material-ui/core/CssBaseline'
 
-import DefaultLayout from 'layouts/DefaultLayout'
-
 import 'css/projection.css'
 
 function App({ Component, pageProps }) {
   return (
     <div className="App">
       <CssBaseline />
-      <DefaultLayout>
-        <Component {...pageProps} />
-      </DefaultLayout>
+      <Component {...pageProps} />
       <style jsx>{global}</style>
     </div>
   )

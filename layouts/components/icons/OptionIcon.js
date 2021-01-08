@@ -15,7 +15,7 @@ export default function OptionIcon(props) {
   const color = isSelected ? 'primary' : undefined
 
   const icons = {
-    NODO: <LocationOffIcon color={color} />,
+    NOEO: <LocationOffIcon color={color} />,
     WITR: <LocationOnIcon color={color} />,
     GLTD: <LocationOnIcon color={color} />,
     VOME: <LocationOnIcon color={color} />,

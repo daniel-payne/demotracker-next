@@ -1,18 +1,21 @@
 import { useState } from 'react'
 
+import Link from 'next/link'
+
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
+
 import MenuIcon from '@material-ui/icons/Menu'
-import Breadcrumbs from '@material-ui/core/Breadcrumbs'
-import Link from '@material-ui/core/Link'
+import DashboardIcon from '@material-ui/icons/Dashboard'
 import SearchIcon from '@material-ui/icons/Search'
 
-import LeftSideBar from 'layouts/components/bars/LeftSideBar'
+import RightSideBar from 'layouts/components/bars/RightSideBar'
 
-export default function HeaderBar() {
+export default function HeaderBar(props) {
+  const { title, back } = props
   const [open, setOpen] = useState(false)
 
   const handleOpen = () => {
@@ -25,15 +28,17 @@ export default function HeaderBar() {
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleOpen}>
-          <MenuIcon />
-        </IconButton>
+        <Link href="/" passHref>
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            <DashboardIcon />
+          </IconButton>
+        </Link>
+
         <Typography variant="h6" style={{ flexGrow: 1 }}>
-          {/* <Link color="textSecondary">World</Link>
-      <span color="textSecondary">&nbsp;/&nbsp;</span>
-      <Link color="textSecondary">United Kingdom</Link>
-      <span color="textSecondary">&nbsp;/&nbsp;</span> */}
-          <span color="textPrimary">London</span>
+          <Link href="/globe">
+            <span>{back}&nbsp;&nbsp;&nbsp;</span>
+          </Link>
+          <span color="textPrimary">{title}</span>
         </Typography>
 
         <IconButton color="inherit" aria-label="search">
@@ -42,8 +47,11 @@ export default function HeaderBar() {
         <Button color="inherit" variant="outlined" aria-label="login">
           Login
         </Button>
+        <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleOpen}>
+          <MenuIcon />
+        </IconButton>
       </Toolbar>
-      <LeftSideBar open={open} onOpen={handleOpen} onClose={handleClose} />
+      <RightSideBar open={open} onOpen={handleOpen} onClose={handleClose} />
     </AppBar>
   )
 }

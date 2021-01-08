@@ -8,11 +8,17 @@ import ListItemText from '@material-ui/core/ListItemText'
 import OptionIcon from 'layouts/components/icons/OptionIcon'
 
 export default function OptionsList(props) {
-  const { selected, source } = props
+  const { selected, source, onSelect } = props
 
   const { data, error } = useSWR(source)
 
   const { name, defaultOption, options } = data || {}
+
+  const handelSelect = (event, newValue) => {
+    if (onSelect) {
+      onSelect(event, newValue)
+    }
+  }
 
   return (
     <List>
@@ -25,7 +31,12 @@ export default function OptionsList(props) {
             : option.id === defaultOption
 
           return (
-            <ListItem button key={option.id} selected={isSelected}>
+            <ListItem
+              button
+              key={option.id}
+              selected={isSelected}
+              onClick={(event) => handelSelect(event, option.id)}
+            >
               <OptionIcon option={option} isSelected={isSelected} />
               <ListItemText primary={option.name} secondary={option.info} />
             </ListItem>

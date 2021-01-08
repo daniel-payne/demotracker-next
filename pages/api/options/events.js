@@ -1,9 +1,9 @@
 const data = {
-  id: 'DATA',
-  name: 'Data Overlay',
-  defaultOption: 'NODO',
+  id: 'EVEN',
+  name: 'Events Overlay',
+  defaultOption: 'NOEO',
   options: [
-    { id: 'NODO', name: 'None' },
+    { id: 'NOEO', name: 'None' },
     {
       id: 'WITR',
       name: 'Wikipedia Terrorism Reports',

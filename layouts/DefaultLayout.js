@@ -3,11 +3,13 @@ import css from 'styled-jsx/css'
 import HeaderBar from 'layouts/components/bars/HeaderBar'
 import FooterBar from 'layouts/components/bars/FooterBar'
 
-export default function DefaultLayout({ children }) {
+export default function DefaultLayout(props) {
+  const { title, back, children } = props
+
   return (
     <div className="DefaultLayout">
       <header>
-        <HeaderBar />
+        <HeaderBar title={title} back={back} />
       </header>
       <main>{children}</main>
       <footer>
