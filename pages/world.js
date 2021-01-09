@@ -1,7 +1,10 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
-import useSWR from 'swr'
+export async function getStaticProps(context) {
+  return {
+    props: {},
+  }
+}
 
 import DefaultLayout from 'layouts/DefaultLayout'
 
@@ -12,7 +15,7 @@ export default function WorldPage() {
         <title>Worldview | World</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <DefaultLayout>
+      <DefaultLayout title="World">
         <h4>WorldPage</h4>
       </DefaultLayout>
     </div>

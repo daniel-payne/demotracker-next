@@ -15,7 +15,7 @@ import SearchIcon from '@material-ui/icons/Search'
 import RightSideBar from 'layouts/components/bars/RightSideBar'
 
 export default function HeaderBar(props) {
-  const { title, back } = props
+  const { title, back, backUrl } = props
   const [open, setOpen] = useState(false)
 
   const handleOpen = () => {
@@ -35,9 +35,11 @@ export default function HeaderBar(props) {
         </Link>
 
         <Typography variant="h6" style={{ flexGrow: 1 }}>
-          <Link href="/globe">
-            <span>{back}&nbsp;&nbsp;&nbsp;</span>
-          </Link>
+          {backUrl && (
+            <Link href={backUrl}>
+              <span style={{ paddingRight: '8px', opacity: 0.7 }}>{back}</span>
+            </Link>
+          )}
           <span color="textPrimary">{title}</span>
         </Typography>
 

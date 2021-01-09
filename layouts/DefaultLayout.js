@@ -4,12 +4,12 @@ import HeaderBar from 'layouts/components/bars/HeaderBar'
 import FooterBar from 'layouts/components/bars/FooterBar'
 
 export default function DefaultLayout(props) {
-  const { title, back, children } = props
+  const { title, back, backUrl, children } = props
 
   return (
     <div className="DefaultLayout">
       <header>
-        <HeaderBar title={title} back={back} />
+        <HeaderBar title={title} back={back} backUrl={backUrl} />
       </header>
       <main>{children}</main>
       <footer>
