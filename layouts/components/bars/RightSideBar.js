@@ -34,19 +34,6 @@ export default function RightSideBar(props) {
     setSelectedFilter(newValue)
   }
 
-  useEffect(() => {
-    debugger
-    if (router.query.events && selectedEvents && router.query.events !== selectedEvents) {
-      setSelectedEvents(router.query.events)
-    }
-    if (router.query.people && selectedPeople && router.query.people !== selectedPeople) {
-      setSelectedPeople(router.query.people)
-    }
-    if (router.query.filter && selectedFilter && router.query.filter !== selectedFilter) {
-      setSelectedFilter(router.query.filter)
-    }
-  }, [router.query.events, router.query.people, router.query.filter])
-
   return (
     <SwipeableDrawer anchor="right" open={open} onClose={onClose} onOpen={onOpen}>
       <OptionsList

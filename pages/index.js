@@ -11,7 +11,12 @@ export default function HomePage() {
     <div>
       <Link href="/world?events=WITR-2000&show=MAP">
         <Button size="small" color="primary">
-          Since 2000
+          WORLD WITR-2000 MAP
+        </Button>
+      </Link>
+      <Link href="/country/1?events=WITR-2000&show=MAP">
+        <Button size="small" color="primary">
+          COUNTRY 1 WITR-2000 MAP
         </Button>
       </Link>
 

@@ -1,30 +1,9 @@
-import { useState } from 'react'
-
-import Link from 'next/link'
-
-import { useRouter } from 'next/router'
-
 import Button from '@material-ui/core/Button'
 
+import useQuery from 'hooks/useQuery'
+
 export default function HomePage(props) {
-  const router = useRouter()
-  const { query } = router
-  const { events, people, filter, display } = query
-
-  const updateQuery = (target, value) => {
-    const { query = {}, pathname } = router
-
-    query[target] = value
-
-    router.push(
-      {
-        pathname,
-        query,
-      },
-      undefined,
-      { shallow: true }
-    )
-  }
+  const [{ events, people, filter, display }, updateQuery] = useQuery()
 
   return (
     <div>

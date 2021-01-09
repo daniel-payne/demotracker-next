@@ -1,30 +1,11 @@
-import { useState } from 'react'
-
-import { useRouter } from 'next/router'
+import useQuery from 'hooks/useQuery'
 
 const useShowQuery = () => {
-  const router = useRouter()
+  const router = useQuery()
 
-  const set = (newValue) => {
-    const { query = {}, pathname } = router
+  const [{ show: value }, updateQuery] = useQuery()
 
-    query.show = newValue
-
-    router.push(
-      {
-        pathname,
-        query,
-      },
-      undefined,
-      { shallow: true }
-    )
-
-    setValue(newValue)
-  }
-
-  const initial = router.query.SHOW || router.query.show || ''
-
-  const [value, setValue] = useState(initial)
+  const set = (newValue) => updateQuery('show', newValue)
 
   return [value, set]
 }

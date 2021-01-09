@@ -1,40 +1,11 @@
-import { useState } from 'react'
-
-import { useRouter } from 'next/router'
-
-import useSWR from 'swr'
+import useQuery from 'hooks/useQuery'
 
 const useEventsQuery = () => {
-  const router = useRouter()
+  const router = useQuery()
 
-  const { data, error } = useSWR('/api/options/events')
+  const [{ events: value }, updateQuery] = useQuery()
 
-  const { defaultOption } = data || {}
-
-  const set = (newValue) => {
-    if (value === newValue) {
-      return
-    }
-
-    const { query = {}, pathname } = router
-
-    query.events = newValue
-
-    router.push(
-      {
-        pathname,
-        query,
-      },
-      undefined,
-      { shallow: true }
-    )
-
-    setValue(newValue)
-  }
-
-  const initial = router.query.EVENTS || router.query.events || defaultOption || ''
-
-  const [value, setValue] = useState(initial)
+  const set = (newValue) => updateQuery('events', newValue)
 
   return [value, set]
 }
