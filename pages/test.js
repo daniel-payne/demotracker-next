@@ -6,8 +6,10 @@ import { useRouter } from 'next/router'
 
 import Button from '@material-ui/core/Button'
 
-export default function HomePage() {
+export default function HomePage(props) {
   const router = useRouter()
+  const { query } = router
+  const { events, people, filter, display } = query
 
   const updateQuery = (target, value) => {
     const { query = {}, pathname } = router
@@ -27,16 +29,18 @@ export default function HomePage() {
   return (
     <div>
       <Button size="small" color="primary" onClick={() => updateQuery('events', 'WITE')}>
-        Wikepida 2020
+        Wikepida 2020 {events === 'WITE' ? 'YES' : 'no'}
       </Button>
       <Button size="small" color="primary" onClick={() => updateQuery('events', 'GTD')}>
-        Global 2020
+        Global 2020 {events === 'GTD' ? 'YES' : 'no'}
       </Button>
       <Button size="small" color="primary" onClick={() => updateQuery('people', 'NOPO')}>
         Peopel 2020
+      </Button>{' '}
+      <Button size="small" color="primary" onClick={() => updateQuery('people', 'ALLP')}>
+        Peopel 2020
       </Button>
-
-      <pre>{JSON.stringify(router, null, 2)}</pre>
+      <div>{events}</div> <div>{people}</div> <div>{filter}</div> <div>{display}</div>
     </div>
   )
 }
