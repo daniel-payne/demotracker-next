@@ -1,26 +1,39 @@
-import Link from 'next/link'
-
+import React from 'react'
+import Container from '@material-ui/core/Container'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
+
+import Link from 'materialUI/Link.js'
 
 const testLinks = [
   { text: 'World', href: '/world ' },
   { text: 'World GLTD-1970 MAP', href: '/world?events=GLTD-1970&show=MAP' },
 ]
 
-export default function HomePage() {
+export default function IndexPage() {
   return (
-    <div>
-      {testLinks.map((link) => {
-        return (
-          <div style={{ padding: 4, margin: 8, display: 'inline-block' }}>
-            <Link href={link.href}>
-              <Button variant="outlined" color="primary">
+    <Container maxWidth="sm">
+      <Box my={4}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          World View Dashboard
+        </Typography>
+        <div style={{ padding: 4, marginRight: 8, display: 'inline-block' }}>
+          <Link href="/about" color="secondary">
+            About
+          </Link>
+        </div>
+        <br />
+        {testLinks.map((link) => {
+          return (
+            <div style={{ padding: 4, marginRight: 8, display: 'inline-block' }}>
+              <Button variant="contained" color="primary" component={Link} naked href={link.href}>
                 {link.text}
               </Button>
-            </Link>
-          </div>
-        )
-      })}
-    </div>
+            </div>
+          )
+        })}
+      </Box>
+    </Container>
   )
 }

@@ -1,24 +1,27 @@
 {
-  "name": "demotracker-next",
-  "version": "0.1.0",
+  "name": "nextjs",
+  "version": "4.0.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
   "dependencies": {
     "@mapbox/geojson-rewind": "^0.5.0",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
+    "clsx": "^1.1.1",
     "d3": "^6.3.1",
     "d3-geo-zoom": "^1.4.1",
     "d3-hexbin": "^0.2.2",
     "date-fns": "^2.16.1",
     "next": "^10.0.4",
     "pg": "^8.5.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "swr": "^0.3.11"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   }
 }
