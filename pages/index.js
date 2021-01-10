@@ -14,7 +14,7 @@ export default function HomePage() {
         return (
           <div style={{ padding: 4, margin: 8, display: 'inline-block' }}>
             <Link href={link.href}>
-              <Button variant="contained" color="primary">
+              <Button variant="outlined" color="primary">
                 {link.text}
               </Button>
             </Link>
