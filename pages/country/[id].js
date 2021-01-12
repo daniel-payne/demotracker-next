@@ -1,25 +1,42 @@
 import Head from 'next/head'
 
+import getCountryIDs from 'data/getCountryIDs'
+
+import getCountry from 'data/getCountry'
+// import getStates from 'data/getStates'
+// import getCities from 'data/getCities'
+
 import DefaultLayout from 'layouts/DefaultLayout'
 
 export async function getStaticProps(context) {
-  console.log(context)
+  const id = context.params.id
+
+  const country = await getCountry(id)
+  // const states = await getStates(id)
+  // const cities = await getCities(id)
+
   return {
     props: {
-      id: context.params.id,
+      country,
+      // states,
+      // cities
     },
   }
 }
 
 export async function getStaticPaths() {
+  const ids = await getCountryIDs()
+
+  const paths = ids.map((id) => ({ params: id }))
+
   return {
-    paths: [{ params: { id: '1' } }],
+    paths,
     fallback: true,
   }
 }
 
 export default function HomePage(props) {
-  const { id } = props
+  const { country } = props
 
   return (
     <div className="HomePage" style={{ height: '100%' }}>
@@ -27,8 +44,8 @@ export default function HomePage(props) {
         <title>Country</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <DefaultLayout title={id} back="World" backUrl="/world">
-        CountryPage .{id}.
+      <DefaultLayout title={country.name} back="World" backUrl="/world">
+        CountryPage .{country.id}.
       </DefaultLayout>
     </div>
   )

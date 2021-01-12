@@ -24,9 +24,9 @@ export default function IndexPage() {
           </Link>
         </div>
         <br />
-        {testLinks.map((link) => {
+        {testLinks.map((link, i) => {
           return (
-            <div style={{ padding: 4, marginRight: 8, display: 'inline-block' }}>
+            <div style={{ padding: 4, marginRight: 8, display: 'inline-block' }} key={i}>
               <Button variant="contained" color="primary" component={Link} naked href={link.href}>
                 {link.text}
               </Button>

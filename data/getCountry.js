@@ -1,4 +1,3 @@
-import cache from 'data/helpers/cache.js'
 import sql from 'data/helpers/sql.js'
 import pool from 'data/helpers/pool.js'
 
@@ -12,27 +11,21 @@ const query = sql`
     center_json                   AS "centerJSON"
   FROM 
     info.countries
-  ORDER BY
-    country_name
+  WHERE
+  country_id = :ID
 `
 
-export default async function getCountries() {
-  const cachedRows = cache.get('COUNTRIES')
-
-  if (cachedRows !== undefined) {
-    return cachedRows
-  }
+export default async function getCountry(id) {
+  const completedQuery = query.replace(':ID', id)
 
   const rows = await pool
-    .query(query)
+    .query(completedQuery)
     .then((res) => res.rows)
     .then(processRows)
 
-  console.log('getCountries : ' + rows.length)
+  console.log('getCountry : ' + rows.length)
 
-  cache.set('COUNTRIES', rows)
-
-  return rows
+  return rows[0]
 }
 
 const processRows = (rows) => {

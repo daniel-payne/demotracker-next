@@ -3,7 +3,6 @@ import Head from 'next/head'
 import DefaultLayout from 'layouts/DefaultLayout'
 
 export async function getStaticProps(context) {
-  console.log(context.params)
   return {
     props: {
       id: context.params.id,
