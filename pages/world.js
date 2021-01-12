@@ -28,7 +28,6 @@ export default function WorldPage(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <DefaultLayout title="World">
-        {show}
         <CountriesList countries={countries} />
       </DefaultLayout>
     </div>

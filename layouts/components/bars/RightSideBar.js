@@ -1,4 +1,4 @@
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
+import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
 import Divider from '@material-ui/core/Divider'
 import ListItem from '@material-ui/core/ListItem'
@@ -30,7 +30,7 @@ export default function RightSideBar(props) {
   }
 
   return (
-    <SwipeableDrawer anchor="right" open={open} onClose={onClose} onOpen={onOpen}>
+    <Drawer anchor="right" open={open} onClose={onClose} onOpen={onOpen}>
       <OptionsList source="/api/options/events" selected={events} onSelect={handleSelectEvents} />
       <Divider />
       <OptionsList source="/api/options/people" selected={people} onSelect={handleSelectPeople} />
@@ -45,6 +45,6 @@ export default function RightSideBar(props) {
           />
         </ListItem>
       </List>
-    </SwipeableDrawer>
+    </Drawer>
   )
 }

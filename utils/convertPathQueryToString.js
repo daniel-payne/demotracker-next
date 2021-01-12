@@ -10,6 +10,8 @@ function obsKeysToString(source, joiner = '=', separator = ',') {
   if (result) {
     return '?' + result
   }
+
+  return ''
 }
 
 export default function convertPathQueryToString(path = '/', query = {}) {

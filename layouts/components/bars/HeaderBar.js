@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import Link from 'next/link'
+import Link from 'materialUI/Link.js'
 
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -28,18 +28,17 @@ export default function HeaderBar(props) {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Link href="/" passHref>
-          <IconButton edge="start" color="inherit" aria-label="menu">
-            <DashboardIcon />
-          </IconButton>
-        </Link>
+        <IconButton edge="start" color="inherit" aria-label="menu" component={Link} naked href="/">
+          <DashboardIcon />
+        </IconButton>
+
+        {back && (
+          <Button variant="outline" color="inherit" component={Link} naked href={backUrl}>
+            {back} /
+          </Button>
+        )}
 
         <Typography variant="h6" style={{ flexGrow: 1 }}>
-          {backUrl && (
-            <Link href={backUrl}>
-              <span style={{ paddingRight: '8px', opacity: 0.7 }}>{back}</span>
-            </Link>
-          )}
           <span color="textPrimary">{title}</span>
         </Typography>
 
