@@ -15,7 +15,7 @@ import IconButton from '@material-ui/core/IconButton'
 
 import getCountries from 'data/getCountries'
 
-import CountriesList from 'components/country/CountriesList'
+import CountriesList from 'components/lists/CountriesList'
 
 import useShowQuery from 'hooks/useShowQuery'
 
@@ -125,7 +125,7 @@ export default function WorldPage(props) {
               <Paper style={{ height: '100%', margin: 8, overflow: 'auto' }}>
                 <Toolbar>
                   <div style={{ flexGrow: 1 }}>
-                    <Tabs left value={0}>
+                    <Tabs value={0}>
                       <Tab label="Countries" />
                     </Tabs>
                   </div>

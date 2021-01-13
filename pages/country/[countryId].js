@@ -57,7 +57,7 @@ function CountryInformation() {
   return (
     <div>
       <Toolbar>
-        <Tabs left value={value} onChange={handleChange}>
+        <Tabs value={value} onChange={handleChange}>
           <Tab label="CIA FactBook" />
           <Tab label="UK Foreign Office" />
           <Tab label="US State Department" />
@@ -76,7 +76,7 @@ function CountryPeople() {
   return (
     <div>
       <Toolbar>
-        <Tabs left value={value} onChange={handleChange}>
+        <Tabs value={value} onChange={handleChange}>
           <Tab label="Residents (None)" />
           <Tab label="Currently Present (12)" />
           <Tab label="Current &amp; Future (43)" />
@@ -94,7 +94,7 @@ function CountryEvents() {
   return (
     <div>
       <Toolbar>
-        <Tabs left value={value} onChange={handleChange}>
+        <Tabs value={value} onChange={handleChange}>
           <Tab label="Wikipedia Reports" />
           <Tab label="Global Terrorism" />
           <Tab label="Travel Alerts" />
@@ -111,13 +111,13 @@ function CountryStatesCities() {
   }
   return (
     <div>
-      {/* <Tabs left value={value} onChange={handleChange}>
+      {/* <Tabs   value={value} onChange={handleChange}>
         <Tab label="Wikipedia Reports" />
         <Tab label="Global Terrorism" />
       </Tabs> */}
       <Toolbar>
         <div style={{ flexGrow: 1 }}>
-          <Tabs left value={value} onChange={handleChange}>
+          <Tabs value={value} onChange={handleChange}>
             <Tab label="States" />
             <Tab label="Cities" />
           </Tabs>
@@ -139,7 +139,7 @@ export default function CountryPage(props) {
         <title>Country</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <DefaultLayout title={country.name} back="The World" backUrl="/world">
+      <DefaultLayout title={country?.name} back="The World" backUrl="/world">
         <div style={{ width: '100%', height: '100%', padding: 8, backgroundColor: '#F0F0F0' }}>
           <Grid container style={{ height: 'calc(100% - 16px)' }}>
             <Grid item xs={3}>

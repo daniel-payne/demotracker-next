@@ -33,7 +33,7 @@ export default function HeaderBar(props) {
         </IconButton>
 
         {back && (
-          <Button variant="outline" color="inherit" component={Link} naked href={backUrl}>
+          <Button variant="text" color="inherit" component={Link} naked href={backUrl}>
             {back} /
           </Button>
         )}

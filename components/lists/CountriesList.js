@@ -1,4 +1,4 @@
-import CountryInfo from 'components/country/CountryInfo'
+import CountryInformation from 'components/informations/CountryInformation'
 
 export default function CountryList(props) {
   const { countries } = props
@@ -6,7 +6,7 @@ export default function CountryList(props) {
   return (
     <div>
       {countries.map((country) => (
-        <CountryInfo key={country.id} country={country} />
+        <CountryInformation key={country.id} country={country} />
       ))}
     </div>
   )
