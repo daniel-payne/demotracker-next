@@ -77,9 +77,10 @@ function CountryPeople() {
     <div>
       <Toolbar>
         <Tabs value={value} onChange={handleChange}>
-          <Tab label="Residents (None)" />
-          <Tab label="Currently Present (12)" />
-          <Tab label="Current &amp; Future (43)" />
+          <Tab label="All" />
+          <Tab label="Residents" />
+          <Tab label="Travelers" />
+          <Tab label="Bookings" />
         </Tabs>
       </Toolbar>
     </div>

@@ -48,6 +48,8 @@ export default function GlobalPlaces() {
         <div style={{ flexGrow: 1 }}>
           <Tabs value={value} onChange={handleChange}>
             <Tab label="Places" />
+            <Tab label="People" />
+            <Tab label="Facilities" />
           </Tabs>
         </div>
         <IconButton color="primary" aria-label="search">
