@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-import css from 'styled-jsx/css'
-
 import Toolbar from '@material-ui/core/Toolbar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
@@ -10,13 +8,22 @@ import IconButton from '@material-ui/core/IconButton'
 import Divider from '@material-ui/core/Divider'
 
 import FullscreenIcon from '@material-ui/icons/Fullscreen'
-import SearchIcon from '@material-ui/icons/Search'
+import SettingsIcon from '@material-ui/icons/Settings'
 import ExploreOnIcon from '@material-ui/icons/Explore'
+
+import { makeStyles } from '@material-ui/core/styles'
 
 import Link from 'materialUI/Link.js'
 
 import GlobalInformation from 'components/informations/GlobalInformation'
 import CountryInformation from 'components/informations/CountryInformation'
+
+import PlacesList from 'components/lists/PlacesList'
+import PeopleList from 'components/lists/PeopleList'
+import FacilitiesList from 'components/lists/FacilitiesList'
+
+import CardManager from 'components/managers/CardManager'
+import GroupSeperator from 'components/seperator/GroupSeparator'
 
 const savedCountries = [
   { name: 'United Kingdom', id: '80' },
@@ -31,19 +38,17 @@ const savedStates = [
   { text: 'Hyderabad (India)', href: '/country/9' },
   { text: 'New York (United States)', href: '/country/9' },
 ]
-export default function GlobalPlaces() {
+export default function TrackingCard() {
+  const { TrackingCard, guttered } = useStyles()
+
   const [value, setValue] = useState(0)
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
 
-  const GroupSeparator = () => {
-    return <div style={{ height: 4 }}>&nbsp;</div>
-  }
-
   return (
-    <div className="GlobalPlaces">
+    <div className={TrackingCard}>
       <Toolbar>
         <div style={{ flexGrow: 1 }}>
           <Tabs value={value} onChange={handleChange}>
@@ -53,7 +58,7 @@ export default function GlobalPlaces() {
           </Tabs>
         </div>
         <IconButton color="primary" aria-label="search">
-          <SearchIcon />
+          <SettingsIcon />
         </IconButton>
         <IconButton color="primary" aria-label="search">
           <ExploreOnIcon />
@@ -62,7 +67,12 @@ export default function GlobalPlaces() {
           <FullscreenIcon />
         </IconButton>
       </Toolbar>
-      <div className="guttered">
+      <div className={guttered}>
+        {value === 0 && <PlacesList />}
+        {value === 1 && <PeopleList />}
+        {value === 2 && <FacilitiesList />}
+      </div>
+      {/* <div className="guttered">
         <GlobalInformation />
         <GroupSeparator />
         <Divider variant="fullWidth" />
@@ -82,16 +92,14 @@ export default function GlobalPlaces() {
             </div>
           )
         })}
-      </div>
-      <style jsx>{style}</style>
+      </div> */}
     </div>
   )
 }
 
-const style = css`
-  .GlobalPlaces {
-  }
-  .guttered {
-    padding: 16px;
-  }
-`
+const useStyles = makeStyles((theme) => ({
+  TrackingCard: {},
+  guttered: {
+    padding: '8px 24px',
+  },
+}))

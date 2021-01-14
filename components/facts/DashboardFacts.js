@@ -1,8 +1,8 @@
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 
+import TrackingCard from 'components/cards/TrackingCard'
 import GlobalEvents from 'components/events/GlobalEvents'
-import GlobalPlaces from 'components/places/GlobalPlaces'
 import GlobalLocations from 'components/locations/GlobalLocations'
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -15,7 +15,7 @@ export default function DashboardData(props) {
       <Grid container className={full_height}>
         <Grid item xs={7} className={full_height}>
           <Paper className={half_guttered}>
-            <GlobalPlaces />
+            <TrackingCard />
           </Paper>
           <Paper className={half_guttered}>
             <GlobalLocations />
