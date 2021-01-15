@@ -6,16 +6,16 @@ import ListItemText from '@material-ui/core/ListItemText'
 
 import OptionsList from 'layouts/components/list/OptionsList'
 
-import useEventsQuery from 'hooks/useEventsQuery'
-import usePeopleQuery from 'hooks/usePeopleQuery'
-import useFilterQuery from 'hooks/useFilterQuery'
+import useEventsOverlayQuery from 'hooks/useEventsOverlayQuery'
+import usePeopleOverlayQuery from 'hooks/usePeopleOverlayQuery'
+import useFilterOverlayQuery from 'hooks/useFilterOverlayQuery'
 
 export default function RightSideBar(props) {
-  const { open, onOpen, onClose } = props
+  const { open, onClose } = props
 
-  const [events, setEvents] = useEventsQuery()
-  const [people, setPeople] = usePeopleQuery()
-  const [filter, setFilter] = useFilterQuery()
+  const [events, setEvents] = useEventsOverlayQuery()
+  const [people, setPeople] = usePeopleOverlayQuery()
+  const [filter, setFilter] = useFilterOverlayQuery()
 
   const handleSelectEvents = (event, newValue) => {
     setEvents(newValue)
@@ -30,12 +30,12 @@ export default function RightSideBar(props) {
   }
 
   return (
-    <Drawer anchor="right" open={open} onClose={onClose} onOpen={onOpen}>
-      <OptionsList source="/api/options/events" selected={events} onSelect={handleSelectEvents} />
+    <Drawer anchor="right" open={open} onClose={onClose}>
+      <OptionsList source="events" selected={events} onSelect={handleSelectEvents} />
       <Divider />
-      <OptionsList source="/api/options/people" selected={people} onSelect={handleSelectPeople} />
+      <OptionsList source="people" selected={people} onSelect={handleSelectPeople} />
       <Divider />
-      <OptionsList source="/api/options/filter" selected={filter} onSelect={handleSelectFilter} />
+      <OptionsList source="filter" selected={filter} onSelect={handleSelectFilter} />
       <Divider />
       <List style={{ maxWidth: 364 }}>
         <ListItem>

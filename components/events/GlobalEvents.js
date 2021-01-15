@@ -22,17 +22,10 @@ export default function GlobalEvents() {
       <Toolbar>
         <div style={{ flexGrow: 1 }}>
           <Tabs value={value} onChange={handleChange}>
-            <Tab label="Travel Alerts" />
-            <Tab label="Wikipedia Reports" />
-            <Tab label="Global Terrorism" />
+            <Tab label="Latest Travel Alerts" />
+            <Tab label="Latest Wikipedia Reports" />
           </Tabs>
         </div>
-        <IconButton color="primary" aria-label="search">
-          <DateRangeIcon />
-        </IconButton>
-        <IconButton color="primary" aria-label="search">
-          <FullscreenIcon />
-        </IconButton>
       </Toolbar>
       <style jsx>{style}</style>
     </div>

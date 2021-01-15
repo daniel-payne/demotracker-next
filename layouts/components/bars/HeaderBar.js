@@ -52,7 +52,7 @@ export default function HeaderBar(props) {
           <MenuIcon />
         </IconButton>
       </Toolbar>
-      <RightSideBar open={open} onOpen={handleOpen} onClose={handleClose} />
+      <RightSideBar open={open} onClose={handleClose} />
     </AppBar>
   )
 }

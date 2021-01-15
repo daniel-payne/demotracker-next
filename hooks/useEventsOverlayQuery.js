@@ -1,6 +1,6 @@
 import useQuery from 'hooks/useQuery'
 
-const useEventsQuery = () => {
+const useEventsOverlayQuery = () => {
   const router = useQuery()
 
   const [{ events: value }, updateQuery] = useQuery()
@@ -10,4 +10,4 @@ const useEventsQuery = () => {
   return [value, set]
 }
 
-export default useEventsQuery
+export default useEventsOverlayQuery

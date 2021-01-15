@@ -1,6 +1,6 @@
 import useQuery from 'hooks/useQuery'
 
-const useFilterQuery = () => {
+const useFilterOverlayQuery = () => {
   const router = useQuery()
 
   const [{ filter: value }, updateQuery] = useQuery()
@@ -10,4 +10,4 @@ const useFilterQuery = () => {
   return [value, set]
 }
 
-export default useFilterQuery
+export default useFilterOverlayQuery

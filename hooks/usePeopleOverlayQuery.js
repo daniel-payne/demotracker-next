@@ -1,6 +1,6 @@
 import useQuery from 'hooks/useQuery'
 
-const usePeopleQuery = () => {
+const usePeopleOverlayQuery = () => {
   const router = useQuery()
 
   const [{ people: value }, updateQuery] = useQuery()
@@ -10,4 +10,4 @@ const usePeopleQuery = () => {
   return [value, set]
 }
 
-export default usePeopleQuery
+export default usePeopleOverlayQuery

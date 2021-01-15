@@ -1,4 +1,4 @@
-const data = {
+const events = {
   id: 'EVEN',
   name: 'Events Overlay',
   defaultOption: 'NOEO',
@@ -24,10 +24,10 @@ const data = {
       name: 'Global Terrorism Database',
       defaultRange: 'GLTD-1970',
       ranges: [
-        { id: 'GLTD-1970', name: '(1970 - 2018)' },
-        { id: 'GLTD-2000', name: '(2000 - 2018)' },
-        { id: 'GLTD-2015', name: '(2015 - 2018)' },
-        { id: 'GLTD-2018', name: '(2018)' },
+        { id: 'GLTD-1970', name: '(1970 - 2018)', source: '/events?source=GLTD&since=1970' },
+        { id: 'GLTD-2000', name: '(2000 - 2018)', source: '/events?source=GLTD&since=2000' },
+        { id: 'GLTD-2015', name: '(2015 - 2018)', source: '/events?source=GLTD&since=2015' },
+        { id: 'GLTD-2018', name: '(2018)', source: '/events?source=GLTD&since=2018' },
       ],
     },
     {
@@ -43,6 +43,29 @@ const data = {
     },
   ],
 }
+
+const people = {
+  id: 'PEOP',
+  name: 'People Overlay',
+  defaultOption: 'NOPO',
+  options: [
+    { id: 'NOPO', name: 'None' },
+    { id: 'CUPO', name: 'Current Positions', info: '23 Collogues' },
+    { id: 'CUFP', name: 'Current & Future Positions', info: '23 Collogues' },
+  ],
+}
+
+const filter = {
+  id: 'DISP',
+  name: 'Data Filter',
+  defaultOption: 'ALLR',
+  options: [
+    { id: 'ALLR', name: 'Show All' },
+    { id: 'RECD', name: 'Regions Containing Data' },
+  ],
+}
+
+const data = { events, people, filter }
 
 export default (req, res) => {
   res.statusCode = 200

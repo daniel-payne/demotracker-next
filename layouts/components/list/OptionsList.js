@@ -10,9 +10,9 @@ import OptionIcon from 'layouts/components/icons/OptionIcon'
 export default function OptionsList(props) {
   const { selected, source, onSelect } = props
 
-  const { data, error } = useSWR(source)
+  const { data, error } = useSWR('/api/options')
 
-  const { name, defaultOption, options } = data || {}
+  const { name, defaultOption, options } = data ? data[source] || {} : {}
 
   const handelSelect = (event, newValue) => {
     if (onSelect) {
@@ -26,17 +26,10 @@ export default function OptionsList(props) {
 
       {options &&
         options.map((option, i) => {
-          const isSelected = selected
-            ? option.id === selected.substr(0, 4)
-            : option.id === defaultOption
+          const isSelected = selected ? option.id === selected.substr(0, 4) : option.id === defaultOption
 
           return (
-            <ListItem
-              button
-              key={option.id}
-              selected={isSelected}
-              onClick={(event) => handelSelect(event, option.id)}
-            >
+            <ListItem button key={option.id} selected={isSelected} onClick={(event) => handelSelect(event, option.id)}>
               <OptionIcon option={option} isSelected={isSelected} />
               <ListItemText primary={option.name} secondary={option.info} />
             </ListItem>
