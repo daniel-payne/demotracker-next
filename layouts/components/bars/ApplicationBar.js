@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { signIn, signOut, useSession } from 'next-auth/client'
 
 import Link from 'materialUI/Link.js'
 
@@ -16,7 +17,9 @@ import RightSideBar from 'layouts/components/bars/RightSideBar'
 
 export default function ApplicationBar(props) {
   const { title, back, backUrl } = props
+
   const [open, setOpen] = useState(false)
+  const [session, loading] = useSession()
 
   const handleOpen = () => {
     setOpen(true)
@@ -25,19 +28,33 @@ export default function ApplicationBar(props) {
     setOpen(false)
   }
 
+  const handelLogin = () => {
+    signIn()
+  }
+
+  const handelLogout = () => {
+    signOut()
+  }
+
   return (
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" style={{ flexGrow: 1 }}>
           <span color="textPrimary">{title}</span>
         </Typography>
-
         <IconButton color="inherit" aria-label="search">
           <SearchIcon />
         </IconButton>
-        <Button color="inherit" variant="outlined" aria-label="login">
-          Login
-        </Button>
+        {!session && (
+          <Button color="inherit" variant="outlined" aria-label="login" onClick={handelLogin}>
+            Login
+          </Button>
+        )}
+        {session && (
+          <Button color="inherit" variant="outlined" aria-label="login" onClick={handelLogout}>
+            Logout
+          </Button>
+        )}
       </Toolbar>
     </AppBar>
   )

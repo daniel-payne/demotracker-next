@@ -4,7 +4,7 @@ import Divider from '@material-ui/core/Divider'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 
-import OptionsList from 'layouts/components/list/OptionsList'
+import OptionsList from 'views/lists/OptionsList'
 
 import useEventsOverlayQuery from 'hooks/useEventsOverlayQuery'
 import usePeopleOverlayQuery from 'hooks/usePeopleOverlayQuery'

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
+import { Provider } from 'next-auth/client'
 import css from 'styled-jsx/css'
 
 import { ThemeProvider } from '@material-ui/core/styles'
@@ -30,7 +31,9 @@ export default function App(props) {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Component {...pageProps} />
+        <Provider session={pageProps.session}>
+          <Component {...pageProps} />
+        </Provider>
       </ThemeProvider>
       <style jsx>{global}</style>
     </React.Fragment>
