@@ -1,12 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 export default function CountIndicator(props) {
-  const { count, small, Icon } = props
+  const { count, small, primary, Icon } = props
 
   const { CountIndicator, seperator, smallPadded, padded } = useStyles()
 
   const fontSize = small ? '' : 'large'
-  const color = small ? 'secondary' : ''
+  const color = primary ? 'primary' : 'secondary'
 
   return (
     <>

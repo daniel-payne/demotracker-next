@@ -42,7 +42,7 @@ export default function StateInformation(props) {
           <CountIndicator count={facilitiesCount} Icon={BusinessIcon} small></CountIndicator>
           <CountIndicator count={travelerCount} Icon={FlightTakeoffIcon} small></CountIndicator>
           <CountIndicator count={bookingCount} Icon={FlightLandIcon} small></CountIndicator>
-          <CountIndicator count={incidentCount} Icon={AnnouncementIcon}></CountIndicator>
+          <CountIndicator count={incidentCount} Icon={AnnouncementIcon} small primary></CountIndicator>
         </Button>
         <Button component={Link} naked href={href}>
           <span>{country.name}</span>
