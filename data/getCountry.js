@@ -23,8 +23,6 @@ export default async function getCountry(id) {
     .then((res) => res.rows)
     .then(processRows)
 
-  console.log('getCountry : ' + rows.length)
-
   return rows[0]
 }
 

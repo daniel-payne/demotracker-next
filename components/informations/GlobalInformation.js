@@ -23,8 +23,6 @@ export default function GlobalInformation(props) {
 
   const href = convertPathQueryToString(path, query)
 
-  console.log(href)
-
   return (
     <div className={GlobalInformation}>
       <Button variant="contained" color="primary" disableElevation component={Link} naked href={href}>

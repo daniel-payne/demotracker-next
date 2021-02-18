@@ -37,8 +37,8 @@ const data = {
     { id: 33, name: 'Italy' },
   ],
   states: [
-    { id: 234234, name: 'Essex', residentCount: 1, country: { id: 80, name: 'United Kingdom' } },
     { id: 456456, name: 'Hyderabad', travelerCount: 3, incidentCount: 1, country: { id: 9, name: 'India' } },
+    { id: 234234, name: 'Essex', residentCount: 1, country: { id: 80, name: 'United Kingdom' } },
   ],
   cities: [{ name: 'Berlin', countryName: 'Germany' }],
 }

@@ -28,8 +28,6 @@ export default async function getCountries() {
     .then((res) => res.rows)
     .then(processRows)
 
-  console.log('getCountries : ' + rows.length)
-
   cache.set('COUNTRIES', rows)
 
   return rows

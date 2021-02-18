@@ -2,7 +2,7 @@ import NextAuth from 'next-auth'
 
 import Providers from 'next-auth/providers'
 
-const SITE = process.env.NEXTAUTH_URL
+const SITE = process.env.NEXTAUTH_SITE
 const PASSWORD = process.env.NEXTAUTH_PASSWORD
 const THIRTY_DAYS = 30 * 24 * 60 * 60
 

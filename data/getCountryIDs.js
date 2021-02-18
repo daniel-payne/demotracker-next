@@ -11,7 +11,5 @@ const query = sql`
 export default async function getCountryIDs() {
   const rows = await pool.query(query).then((res) => res.rows)
 
-  console.log('getCountryIDs : ' + rows.length)
-
   return rows
 }

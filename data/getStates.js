@@ -24,8 +24,6 @@ export default async function getCountry(id) {
     .then((res) => res.rows)
     .then(processRows)
 
-  console.log('getStates : ' + rows.length)
-
   return rows
 }
 
